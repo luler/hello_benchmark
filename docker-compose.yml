@@ -1,0 +1,17 @@
+services:
+  php_nginx:
+    image: registry.cn-shenzhen.aliyuncs.com/luler/linux_php_nginx:php7.3
+    restart: always
+    privileged: true
+    ports:
+      - 11111:80
+    volumes:
+      - ./config/nginx/conf:/usr/local/nginx/conf
+      - ./config/php/etc:/usr/local/php/etc
+      - ./config/init.sh:/init.sh
+      - ./code/api:/home/wwwroot/api
+      - ./code/web/dist:/home/wwwroot/web/dist
+      - ./code/wrk.zip:/home/wwwroot/wrk.zip
+      - ./runtime/wwwlogs:/home/wwwlogs
+      - ./config/supervisor/supervisord.conf:/etc/supervisord.conf
+      - ./config/supervisor/supervisord.d:/etc/supervisord.d
