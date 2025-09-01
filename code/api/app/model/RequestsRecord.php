@@ -24,5 +24,7 @@ namespace app\model;
 //                  佛祖镇楼                  BUG退散
 class RequestsRecord extends BaseModel
 {
-    //
+    protected $type = [
+        'status' => 'integer',
+    ];
 }
